@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator, MaxLeng
 # Create your models here.
 
 
-class Pokemon(models.Model):
+class Pokemons(models.Model):
     Name = models.CharField(max_length=50, primary_key=True)
     Type = models.CharField(max_length=50)
     Generation = models.IntegerField()
@@ -12,3 +12,5 @@ class Pokemon(models.Model):
     Hp = models.IntegerField()
     Attack=models.IntegerField()
     Defense = models.IntegerField()
+    class Meta():
+        db_table='Pokemons'

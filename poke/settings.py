@@ -77,16 +77,16 @@ WSGI_APPLICATION = 'poke.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'mssql',
-    #     'NAME': 'danielengel',
-    #     'USER': 'danielengel',
-    #     'PASSWORD': 'Qwerty12!',
-    #     'HOST': 'techniondbcourse01.database.windows.net',
-    #     'PORT': '1433',
-    #     'OPTIONS': {"driver": "ODBC Driver 17 for SQL Server",
-    #                 }
-    # },
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': 'danielengel',
+        'USER': 'danielengel',
+        'PASSWORD': 'Qwerty12!',
+        'HOST': 'techniondbcourse01.database.windows.net',
+        'PORT': '1433',
+        'OPTIONS': {"driver": "ODBC Driver 17 for SQL Server",
+                    }
+    },
 }
 
 
