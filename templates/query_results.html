@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Website</title>
+</head>
+<body style="background-color:gainsboro; text-align:center; margin-top: 10px" >
+    <H1>Simple Pokemon League Website</H1>
+
+    <a href="home">Home</a><br>
+    <a href="query_results">Query Results</a><br>
+    <a href="add_pokemon">Add a Pokemon</a><br><br>
+
+    <label>Strongest Pokemons that are legendary, by generation:</label>
+    <table border="1" align="center">
+        <th>Generation</th>
+        <th>Pokemon</th>
+        {% for content in sql_res1 %}
+            <tr>
+                <td>{{ content.Generation }} </td>
+                <td>{{ content.Name }} </td>
+            </tr>
+        {% endfor %}
+    </table><br>
+
+    <label>Dominant Pokemons, by type:</label>
+    <table border="1" align="center">
+        <th>Type</th>
+        <th>Pokemon</th>
+        {% for content in sql_res2 %}
+            <tr>
+                <td>{{ content.Type }} </td>
+                <td>{{ content.Name }} </td>
+            </tr>
+        {% endfor %}
+    </table><br>
+
+    <label>Type with strongest Pokemon stronger than
+        <span style="color: #ffa500">Attack Threshold</span> and more than
+        <span style="color: #ffa500">Pokemon Count</span> Pokemons:
+    </label><br>
+
+    <form method="post" action="run_query">
+        {% csrf_token %}
+        <label>Attack Threshold:</label>
+        <input type="number" name="attack_threshold" min="0"><br>
+        <label>Pokemon Count:</label>
+        <input type="number" name="pokemon_count" min="0"><br>
+        <input type="submit">
+    </form><br>
+    <table border="1" align="center">
+        <th>Type</th>
+        {% for content in sql_res4 %}
+            <tr>
+                <td>{{ content.countType }} </td>
+            </tr>
+        {% endfor %}
+    </table><br>
+
+    <label>Type with highest average instability:</label>
+    <table border="1" align="center">
+        <th>Type</th>
+        <th>Average Instability</th>
+        {% for content in sql_res3 %}
+            <tr>
+                <td>{{ content.Type }} </td>
+                <td>{{ content.av_instability }} </td>
+            </tr>
+        {% endfor %}
+    </table><br>
+</body>
+</html>

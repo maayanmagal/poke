@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Website</title>
+</head>
+<body style="background-color:gainsboro; text-align:center; margin-top: 10px">
+<H1>Simple Pokemon League Website</H1>
+    <a href="home">Home</a><br>
+    <a href="query_results">Query Results</a><br>
+    <a href="add_pokemon">Add a Pokemon</a><br><br>
+
+    <form method="POST" action="add">
+        {% csrf_token %}
+	    Name: <input type="text" minlength="2" maxlength="50"  name="name" required> <br>
+        Type: <input type="text" maxlength="50" name="type" required> <br>
+	    Generation: <input type="number" name="gen" min="1" max="6" required> <br>
+        Legendary: <input type="checkbox" name="legendary" value="true"><br>
+	    Hp: <input type="number" name="hp" min="1" max="300" required> <br>
+	    Attack: <input type="number" name="atk" min="1" max="300" required> <br>
+        Defense: <input type="number" name="def" min="1" max="300" required> <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
